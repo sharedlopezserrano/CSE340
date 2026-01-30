@@ -8,7 +8,7 @@ const Util = {}
 
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
-  let list = "<ul>"
+  let list = '<ul class="nav-list">'
   list += '<li><a href="/" title="Home page">Home</a></li>'
   data.rows.forEach((row) => {
     list += "<li>"
@@ -36,7 +36,7 @@ Util.buildClassificationGrid = async function(data){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
       grid += '<li>'
-      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
+      grid +=  '<a href="/inv/detail/'+ vehicle.inv_id 
       + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
       + 'details"><img src="' + vehicle.inv_thumbnail 
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
@@ -44,7 +44,7 @@ Util.buildClassificationGrid = async function(data){
       grid += '<div class="namePrice">'
       grid += '<hr />'
       grid += '<h2>'
-      grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
+      grid += '<a href="/inv/detail/' + vehicle.inv_id +'" title="View ' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
       grid += '</h2>'
@@ -55,12 +55,37 @@ Util.buildClassificationGrid = async function(data){
     })
     grid += '</ul>'
   } else { 
-    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+    grid = '<p class="notice">Sorry, no matching vehicles could be found.</p>'
   }
   return grid
 }
 
-module.exports = Util
+/* **************************************
+* Build the inventory detail view HTML
+* ************************************ */
+
+Util.buildVehicleDetail = function (vehicle) {
+  const price = new Intl.NumberFormat('en-US').format(vehicle.inv_price)
+  const miles = new Intl.NumberFormat('en-US').format(vehicle.inv_miles)
+
+  let detail = '<section class="inv-detail">'
+  detail += '  <div class="inv-detail__img">'
+  detail += `    <img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}">`
+  detail += '  </div>'
+
+  detail += '  <div class="inv-detail__info">'
+  detail += `    <h2 class="inv-detail__title">${vehicle.inv_make} ${vehicle.inv_model} Details</h2>`
+  detail += '    <div class="inv-detail__panel">'
+  detail += `      <p class="inv-detail__row"><strong>Price:</strong> $${price}</p>`
+  detail += `      <p class="inv-detail__row"><strong>Description:</strong> ${vehicle.inv_description}</p>`
+  detail += `      <p class="inv-detail__row"><strong>Color:</strong> ${vehicle.inv_color}</p>`
+  detail += `      <p class="inv-detail__row"><strong>Miles:</strong> ${miles}</p>`
+  detail += '    </div>'
+  detail += '  </div>'
+  detail += '</section>'
+
+  return detail
+}
 
 /* ****************************************
  * Middleware For Handling Errors
@@ -68,3 +93,5 @@ module.exports = Util
  * General Error Handling
  **************************************** */
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+
+module.exports = Util
