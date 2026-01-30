@@ -1,6 +1,11 @@
 const invModel = require("../models/inventory-model")
 const Util = {}
 
+
+/* **************************************
+ * Build the navigation bar
+ * ************************************ */
+
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
   let list = "<ul>"
@@ -20,10 +25,6 @@ Util.getNav = async function (req, res, next) {
   list += "</ul>"
   return list
 }
-
-module.exports = Util
-
-
 
 
 /* **************************************
@@ -58,3 +59,12 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+module.exports = Util
+
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for 
+ * General Error Handling
+ **************************************** */
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)

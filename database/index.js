@@ -1,22 +1,12 @@
 const { Pool } = require("pg")
 require("dotenv").config()
 
-let pool
-
-if (process.env.NODE_ENV === "production") {
-  // Render / Production
-  pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  })
-} else {
-  // Local development
-  pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-  })
-}
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+})
 
 // Export a consistent interface
 module.exports = {
