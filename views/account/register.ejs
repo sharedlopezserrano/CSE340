@@ -1,0 +1,103 @@
+
+<section class="account-container">
+  <h1 class="flash-title"><%= title %></h1>
+
+  <% /* Flash message (si existe en tu proyecto) */ %>
+  <div class="flash-wrap">
+    <% if (typeof messages === "function") { %>
+      <%- messages() %>
+    <% } %>
+
+    <% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <% if (error.msg !== "Invalid value") { %>
+        <li><%= error.msg %></li>
+      <% } %>
+    <% }) %>
+  </ul>
+<% } %>
+  </div>
+
+
+  <div class="form-card">
+    <h2 class="form-title"><%= title %></h2>
+
+    <form class="account-form" action="/account/register" method="post">
+      <label for="account_firstname">First Name</label>
+      <input
+        type="text"
+        id="account_firstname"
+        name="account_firstname"
+        placeholder="John"
+        required
+        value="<%= (locals.account_firstname) ? account_firstname : '' %>"
+      />
+
+      <label for="account_lastname">Last Name</label>
+      <input
+        type="text"
+        id="account_lastname"
+        name="account_lastname"
+        placeholder="Doe"
+        required
+        value="<%= (locals.account_lastname) ? account_lastname : '' %>"
+      />
+
+      <label for="account_email">Email</label>
+      <input
+        type="email"
+        id="account_email"
+        name="account_email"
+        placeholder="john.doe@email.com"
+        required
+        
+        placeholder="you@example.com"
+        value="<%= (locals.account_email) ? account_email : '' %>"
+      />
+
+      <label for="account_password">Password</label>
+      <div class="password-row">
+        <input
+          type="password"
+          id="account_password"
+          name="account_password"
+          required
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}$"
+          title="Password must be at least 12 characters and include 1 uppercase, 1 lowercase, 1 number, and 1 special character."
+          placeholder="12+ chars, 1 uppercase, 1 number, 1 special"
+          aria-describedby="password-help"
+        />
+        <button type="button" class="btn-secondary" id="togglePassword">Show</button>
+      </div>
+
+      <p class="form-help" id="password-help">
+        Password requirements:
+        <br />• 12 characters minimum
+        <br />• at least 1 capital letter
+        <br />• at least 1 number
+        <br />• at least 1 special character
+      </p>
+
+      <button type="submit" class="btn-primary">Register</button>
+    </form>
+
+    <p class="form-footer">
+      Already have an account?
+      <a href="/account/login">Sign in</a>
+    </p>
+  </div>
+</section>
+
+<script>
+  const toggleBtn = document.getElementById("togglePassword");
+  const pwd = document.getElementById("account_password");
+
+  if (toggleBtn && pwd) {
+    toggleBtn.addEventListener("click", () => {
+      const isPassword = pwd.getAttribute("type") === "password";
+      pwd.setAttribute("type", isPassword ? "text" : "password");
+      toggleBtn.textContent = isPassword ? "Hide" : "Show";
+    });
+  }
+</script>
