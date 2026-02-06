@@ -8,6 +8,15 @@
     <% } %>
   </div>
 
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+
   <div class="form-card">
     <h2 class="form-title"><%= title %></h2>
 
@@ -19,6 +28,7 @@
         name="account_email"
         placeholder="byui@example.com"
         required
+        value="<%= locals.account_email || '' %>"
       />
 
       <label for="account_password">Password</label>
@@ -27,12 +37,7 @@
         id="account_password"
         name="account_password"
         placeholder="••••••••"
-        minlength="12"
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}$"
-        title="Password must be at least 12 characters and include 1 uppercase, 1 lowercase, 1 number, and 1 special character."
-        placeholder="12+ chars, 1 uppercase, 1 number, 1 special"
-        required
-      />
+        required/>
 
       <button type="submit" class="btn-primary">Sign In</button>
     </form>

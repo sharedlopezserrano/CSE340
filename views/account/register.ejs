@@ -31,7 +31,7 @@
         name="account_firstname"
         placeholder="John"
         required
-        value="<%= (locals.account_firstname) ? account_firstname : '' %>"
+        value="<%= locals.account_firstname || '' %>"
       />
 
       <label for="account_lastname">Last Name</label>
@@ -41,7 +41,7 @@
         name="account_lastname"
         placeholder="Doe"
         required
-        value="<%= (locals.account_lastname) ? account_lastname : '' %>"
+        value="<%= locals.account_lastname || '' %>"
       />
 
       <label for="account_email">Email</label>
@@ -53,7 +53,7 @@
         required
         
         placeholder="you@example.com"
-        value="<%= (locals.account_email) ? account_email : '' %>"
+        value="<%= locals.account_email || '' %>"
       />
 
       <label for="account_password">Password</label>
