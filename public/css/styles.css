@@ -667,3 +667,287 @@ body {
     font-size: 0.9rem;
   }
 }
+
+/* Add Inventory Form */
+.add-inventory-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--secondary-color);
+  border: 3px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.add-inventory-form h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.add-inventory-form label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.add-inventory-form input,
+.add-inventory-form textarea,
+.add-inventory-form select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  border: 2px solid #d9d9d9;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-inventory-form input:focus,
+.add-inventory-form textarea:focus,
+.add-inventory-form select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(167, 45, 45, 0.15);
+}
+
+.add-inventory-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.add-inventory-form button {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-inventory-form button:hover {
+  background-color: #8b2323;
+  transform: translateY(-2px);
+}
+
+.add-inventory-form button:active {
+  transform: translateY(0);
+}
+
+.notice {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .add-inventory-form {
+    padding: 1rem;
+  }
+
+  .add-inventory-form h1 {
+    font-size: 1.5rem;
+  }
+
+  .add-inventory-form button {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Add Classification Form */
+.add-classification-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--secondary-color);
+  border: 3px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.add-classification-form h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.add-classification-form p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.add-classification-form label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.add-classification-form input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  border: 2px solid #d9d9d9;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-classification-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(167, 45, 45, 0.15);
+}
+
+.add-classification-form button {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-classification-form button:hover {
+  background-color: #8b2323;
+  transform: translateY(-2px);
+}
+
+.add-classification-form button:active {
+  transform: translateY(0);
+}
+
+.notice {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .add-classification-form {
+    padding: 1rem;
+  }
+
+  .add-classification-form h1 {
+    font-size: 1.5rem;
+  }
+
+  .add-classification-form button {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Management Page */
+.management-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--secondary-color);
+  border: 3px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.management-page h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.management-page ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.management-page ul li {
+  margin-bottom: 1rem;
+}
+
+.management-page ul li a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.management-page ul li a:hover {
+  background-color: #8b2323;
+  transform: translateY(-2px);
+}
+
+.management-page ul li a:active {
+  transform: translateY(0);
+}
+
+.notice {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .management-page {
+    padding: 1rem;
+  }
+
+  .management-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .management-page ul li a {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+}
