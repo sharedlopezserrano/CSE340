@@ -857,6 +857,36 @@ body {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+/* =========================
+   Account Management (enhanced)
+   ========================= */
+.management-page {
+  position: relative;
+  background: var(--secondary-color);
+}
+
+.mgmt-subtitle {
+  margin: 0 0 1.25rem 0;
+  color: var(--text-color);
+  font-size: 1.05rem;
+}
+
+.mgmt-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.mgmt-actions a {
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.mgmt-actions a:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(167, 45, 45, 0.18);
+}
 
 /* Responsive */
 @media (max-width: 600px) {
