@@ -8,5 +8,15 @@
   <ul>
     <li><a href="/inv/classification/add">Add New Classification</a></li>
     <li><a href="/inv/inventory/add">Add New Inventory Item</a></li>
+    <h2>Manage Inventory</h2>
+
+    <p>Select a classification from the list to see the inventory items.</p>
+
+    <%- classificationSelect %>
+
+    <table id="inventoryDisplay"></table>
+
+    <noscript>JavaScript must be enabled to use this page.</noscript>
   </ul>
 </div>
+<script src="/js/inventory.js"></script>
