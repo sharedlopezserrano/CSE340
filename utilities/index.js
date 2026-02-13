@@ -143,6 +143,20 @@ Util.checkLogin = (req, res, next) => {
 }
 
 /* ****************************************
+ *  Check Account Type
+ * ************************************ */
+Util.checkAccountType = (req, res, next) => {
+  if (res.locals.loggedin && res.locals.accountData) {
+    const type = res.locals.accountData.account_type
+    if (type === "Employee" || type === "Admin") {
+      return next()
+    }
+  }
+  req.flash("notice", "Please log in with an Employee or Admin account to access that area.")
+  return res.redirect("/account/login")
+}
+
+/* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
  * General Error Handling

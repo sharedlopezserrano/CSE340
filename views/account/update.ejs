@@ -1,0 +1,84 @@
+<div class="account-container">
+  <h1 class="flash-title"><%= title %></h1>
+
+  <%- messages() %>
+
+  <% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <div class="form-card">
+    <h2 class="form-title">Account Update</h2>
+
+    <form class="account-form" action="/account/update" method="post" novalidate>
+      <label for="account_firstname">First Name</label>
+      <input
+        type="text"
+        id="account_firstname"
+        name="account_firstname"
+        required
+        value="<%= locals.account_firstname || '' %>"
+      />
+
+      <label for="account_lastname">Last Name</label>
+      <input
+        type="text"
+        id="account_lastname"
+        name="account_lastname"
+        required
+        value="<%= locals.account_lastname || '' %>"
+      />
+
+      <label for="account_email">Email</label>
+      <input
+        type="email"
+        id="account_email"
+        name="account_email"
+        required
+        value="<%= locals.account_email || '' %>"
+      />
+
+      <input
+        type="hidden"
+        name="account_id"
+        value="<%= locals.account_id || (locals.accountData ? locals.accountData.account_id : '') %>"
+      />
+
+      <button type="submit" class="btn-primary">Update Account</button>
+    </form>
+  </div>
+
+  <!-- =========================
+       Change Password Form
+       ========================= -->
+  <div class="form-card">
+    <h2 class="form-title">Change Password</h2>
+
+    <p class="form-footer">
+      Enter a new password to replace your current one. Password must meet the requirements used during registration.
+    </p>
+
+    <form class="account-form" action="/account/update-password" method="post" novalidate>
+      <label for="account_password">New Password</label>
+      <input
+        type="password"
+        id="account_password"
+        name="account_password"
+        required
+        placeholder="••••••••"
+      />
+
+      <input
+        type="hidden"
+        name="account_id"
+        value="<%= locals.account_id || (locals.accountData ? locals.accountData.account_id : '') %>"
+      />
+
+      <button type="submit" class="btn-primary">Change Password</button>
+    </form>
+  </div>
+</div>
