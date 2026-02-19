@@ -1,0 +1,20 @@
+<div class="management-page">
+  <h1><%= title %></h1>
+  <%- messages() %>
+
+  <p class="mgmt-subtitle">
+    From: <strong><%= msg.from_firstname %> <%= msg.from_lastname %></strong>
+    &nbsp;|&nbsp;
+    To: <strong><%= msg.to_firstname %> <%= msg.to_lastname %></strong>
+    &nbsp;|&nbsp;
+    Status: <strong><%= msg.message_read ? "Read" : "Unread" %></strong>
+  </p>
+
+  <div class="form-card">
+    <p><%= msg.message_body %></p>
+  </div>
+
+  <ul class="mgmt-actions">
+    <li><a href="/message/inbox">Back to Inbox</a></li>
+  </ul>
+</div>

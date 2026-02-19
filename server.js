@@ -18,6 +18,8 @@ const pool = require('./database/')
 const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
+const messageRoute = require("./routes/messageRoute")
+
 
 
 
@@ -65,6 +67,7 @@ app.set("layout", "./layouts/layout") // not at views root
 app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
+app.use("/message", messageRoute)
 app.use(static)
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

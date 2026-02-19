@@ -1,0 +1,29 @@
+<div class="management-page">
+  <h1><%= title %></h1>
+  <%- messages() %>
+
+  <% if (!inbox || inbox.length === 0) { %>
+    <p class="mgmt-subtitle">No messages yet.</p>
+  <% } else { %>
+    <table id="inventoryDisplay">
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>Subject</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% inbox.forEach(m => { %>
+          <tr>
+            <td><%= m.account_firstname %> <%= m.account_lastname %></td>
+            <td><a href="/message/view/<%= m.message_id %>"><%= m.message_subject %></a></td>
+            <td><%= new Date(m.message_created).toLocaleString() %></td>
+            <td><%= m.message_read ? "Read" : "Unread" %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</div>

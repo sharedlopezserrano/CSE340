@@ -1,0 +1,31 @@
+<div class="account-container">
+  <h1 class="flash-title"><%= title %></h1>
+  <%- messages() %>
+
+  <div class="form-card">
+    <form class="account-form" action="/message/send" method="post" novalidate>
+      <label for="message_to">Send To (account_id)</label>
+      <input
+        type="number"
+        id="message_to"
+        name="message_to"
+        required
+        value="<%= locals.message_to || '' %>"
+      />
+
+      <label for="message_subject">Subject</label>
+      <input
+        type="text"
+        id="message_subject"
+        name="message_subject"
+        required
+        value="<%= locals.message_subject || '' %>"
+      />
+
+      <label for="message_body">Message</label>
+      <textarea id="message_body" name="message_body" required><%= locals.message_body || '' %></textarea>
+
+      <button type="submit" class="btn-primary">Send</button>
+    </form>
+  </div>
+</div>
